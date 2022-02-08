@@ -28,9 +28,9 @@ public class LinkedList {
     }
     public void printlist(){
         Node currnode = head;
-        while (currnode != null){                   //Until currentnode is not equal to null
+        while (currnode != null){     //Until currentnode is not equal to null
             System.out.print(currnode.data +"--->");
-            currnode  = currnode.next;              //Current node will be incremented//
+            currnode  = currnode.next;    //Current node will be incremented//
                  }
     }
     public void inserafternode(Node prev_node, String new_data){
@@ -46,11 +46,11 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList myobj = new LinkedList();
-        myobj.addFIrst("Akshat");
-        myobj.addFIrst("Pritesh");
-        myobj.addFIrst("Tejas");
-//        myobj.printlist();
-        myobj.inserafternode(myobj.head, "Sahil");            //Will add after the head of first list
+        myobj.addFIrst("First");
+        myobj.inserafternode(myobj.head, "Second");          //Will add after the head of first list
+        myobj.inserafternode(myobj.head.next, "Third");
+        myobj.inserafternode(myobj.head.next.next,"Fourth");
+        myobj.addlast("I am last");
         myobj.printlist();
 
 
