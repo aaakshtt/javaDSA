@@ -19,8 +19,8 @@ public class SinglyLinnkedList {
             head = newNode;             // Head will be the new node
             return;
         }
-        newNode.next = head;            // next part of newnode will be head
-        head = newNode;                 // head will be equal to newnode
+        newNode.next = head;            //  Update the next pointer of new node, to point to the current head.
+        head = newNode;                 //  Update head pointer to point to the new node.
     }
 
     public void addlast(String data) {  //function to add data to last position
@@ -31,7 +31,9 @@ public class SinglyLinnkedList {
         }
         Node currNode = head;           //Current node is head
         while (currNode.next != null) { //Until next of current node does not become null we will travserse
+                                        //New nodes next pointer points to NULL.
             currNode = currNode.next;   //We will reach last when - next of currNode will be null
+                                        //Last nodes next pointer points to the new node.
         }
 
         currNode.next = newNode;        //When we get the last node we update the next  part of this node
@@ -51,7 +53,7 @@ public class SinglyLinnkedList {
         System.out.println("null");                 ////Prints each node by incrementing pointer   
 
     }
-    public void deletfirst(){
+    public void deletfirst(){                       //Create a temporary node which will point to the same node as that of head.
         if (head == null){
             System.out.println("List is empty");
             return;
