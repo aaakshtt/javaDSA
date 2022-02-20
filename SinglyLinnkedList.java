@@ -2,9 +2,9 @@ package DataAlgo;
 import java.util.*;
 
 public class SinglyLinnkedList {
-    Node head;                          //Create a node head
-    class Node{                         //Class with name Node
-        String data;                    //String to store data
+    Node head;                          //Create a node head        //Create a class Node which has two attributes: data and next. Next is a pointer to the next node.
+    class Node{                         //Class with name Node      //Create another class which has two attributes: head and tail.
+        String data;                    //String to store data      
         Node next;                      //Next element with type Node
         Node(String data){              //Constructor
             this.data = data;           //We create data
