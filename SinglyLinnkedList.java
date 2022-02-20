@@ -48,7 +48,7 @@ public class SinglyLinnkedList {
             System.out.print(currNode.data +"->");  //Everytime print data of current node until the next part is not null
             currNode = currNode.next;               //Update value of current node
         }
-        System.out.println("null");
+        System.out.println("null");                 ////Prints each node by incrementing pointer   
 
     }
     public void deletfirst(){
