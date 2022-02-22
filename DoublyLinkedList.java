@@ -1,12 +1,12 @@
 package DataAlgo;
 
 public class DoublyLinkedList {
-    Node head;
+    Node head;    			//Head stores the address of the first node                  
     class Node{
         int data;
         Node prev;
         Node next;
-        Node(int d){                    //Constructor to create node
+        Node(int d) {                    //Constructor to create node
             data = d;                   //TEnter data
         }
     }
@@ -49,7 +49,6 @@ public class DoublyLinkedList {
         }
         //Allocate node, put in the data
         Node new_node = new Node(new_data);
-
         new_node.prev = next_node.prev;
         next_node.prev = new_node;
         new_node.next = next_node;
@@ -59,7 +58,6 @@ public class DoublyLinkedList {
         else
             head = new_node;
     }
-
     public void insertatlast(int new_data){
         Node newnode= new Node(new_data);
         Node last = head;                   //The node that we will add
@@ -68,7 +66,23 @@ public class DoublyLinkedList {
         last.next =newnode;                 //Change the next of last node
         newnode.prev = last;                //Making of last node as previous of new node
     }
-    public void preintlist(Node node){
+    public void deletefrombeg(){
+       Node temp = head;
+        head = head.next;
+        head.prev  =null;
+    }
+    public void deletenode(int pos){
+        int i =1;
+        Node temp;
+        temp = head;
+        while (i<pos){
+            temp = temp.next;
+            i++;
+        }
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+    }
+    public void printlist(Node node){
         Node last =null;
         System.out.println("Traversal in forward direction");
         while (node != null) {
@@ -76,15 +90,14 @@ public class DoublyLinkedList {
             last = node;
             node = node.next;
         }
-
         }
-
-
-
     public static void main(String args[]){
         DoublyLinkedList dlist = new DoublyLinkedList();
         dlist.push(20);
         dlist.push(10);
+        dlist.push(20);
+        dlist.push(10);
+        dlist.push(5);
         dlist.insertatlast(1000);                   //Last
 
 
@@ -94,9 +107,16 @@ public class DoublyLinkedList {
         dlist.inserafternode(dlist.head.next.next, 100);        //After 20
 
 
-        dlist.preintlist(dlist.head);
+        dlist.printlist(dlist.head);
 
+                /*
+        dlist.deletefrombeg();
+        dlist.printlist(dlist.head);
+        System.out.println("List after first element is deleted");
 
+         */
+        dlist.deletenode(3);				//Enetr position to delete the node
+        dlist.printlist(dlist.head);
 
     }
 }
