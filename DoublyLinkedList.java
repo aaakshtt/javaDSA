@@ -1,7 +1,7 @@
 package DataAlgo;
 
 public class DoublyLinkedList {
-    Node head;    			//Head stores the address of the first node                  
+    Node head;                          //Stores the adddress of the first node
     class Node{
         int data;
         Node prev;
@@ -67,8 +67,8 @@ public class DoublyLinkedList {
         newnode.prev = last;                //Making of last node as previous of new node
     }
     public void deletefrombeg(){
-       Node temp = head;
-        head = head.next;
+       Node temp = head;                //Pointer temp
+        head = head.next;               //
         head.prev  =null;
     }
     public void deletenode(int pos){
@@ -90,7 +90,37 @@ public class DoublyLinkedList {
             last = node;
             node = node.next;
         }
+    }
+    public void getlenth(){         //Prints the number of node
+        Node temp = head;           //Declare node temp as pointer
+        int i =1;
+        while (temp.next != null) {
+            System.out.println(i);
+            temp =temp.next;                    //Increment the temp pointer
+            i++;
         }
+        System.out.println("Length is"+i);
+    }
+    public void getpostion(int userdata ){          //gets us the postion of that element
+        int index;
+        Node newnode;
+        index=0;
+        newnode =head;
+        while (newnode.data != userdata){
+            newnode = newnode.next;
+            index++;
+        }
+        System.out.println("the index of the element "+userdata+ " is  "+index);
+    }
+    public void getelemenet(int postion){           //Get any element at that postion
+        int index =0;
+        Node temp =head;
+        for (index =0;index<=postion;index++){
+            temp =temp.next;
+        }
+        System.out.println(temp.data);
+
+    }
     public static void main(String args[]){
         DoublyLinkedList dlist = new DoublyLinkedList();
         dlist.push(20);
@@ -115,8 +145,13 @@ public class DoublyLinkedList {
         System.out.println("List after first element is deleted");
 
          */
-        dlist.deletenode(3);				//Enetr position to delete the node
+        dlist.deletenode(3);
         dlist.printlist(dlist.head);
 
+        dlist.getlenth();
+
+        dlist.getpostion(100);
+        dlist.getpostion(1000);
+        dlist.getelemenet(4);
     }
 }
